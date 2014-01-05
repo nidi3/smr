@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Names" >
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element type="RRTNamesCitiesType" name="RRTCities"/>
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TextKeyType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="Tag"/>
+            <xs:element type="xs:string" name="Text"/>
+            <xs:element name="Gender">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="M"/>
+                        <xs:enumeration value="F"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RRTNamesCitiesType">
+        <xs:sequence>
+            <xs:element type="TextKeyType" name="TextKey" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

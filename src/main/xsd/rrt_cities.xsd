@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="RRTCities">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="GridSizeType" name="GridSize"/>
+                <xs:element type="RRTCityTypesType" name="RRTCityTypes"/>
+                <xs:element type="RRTModelsType" name="RRTModels"/>
+                <xs:element type="CityType" name="City" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="RRTCityTypesType">
+        <xs:sequence>
+            <xs:element type="CityTypeType" name="CityType" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ResourceType">
+        <xs:sequence>
+            <xs:element name="Input">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Passengers"/>
+                        <xs:enumeration value="Mail"/>
+                        <xs:enumeration value="None"/>
+                        <xs:enumeration value="Food"/>
+                        <xs:enumeration value="Manufactured Goods"/>
+                        <xs:enumeration value="Automobiles"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Output">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="None"/>
+                        <xs:enumeration value="Passengers"/>
+                        <xs:enumeration value="Mail"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="InputOutputRatio" type="xs:double"/>
+            <xs:element name="MaxStorage" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GridSizeType">
+        <xs:sequence>
+            <xs:element type="xs:int" name="BuildingSpacing"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ModelType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="szNifName"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProductionModifiersType">
+        <xs:sequence>
+            <xs:element type="ResourceType" name="Resource" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="CitySizeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Village"/>
+            <xs:enumeration value="Town"/>
+            <xs:enumeration value="City"/>
+            <xs:enumeration value="Metropolis"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="CityTypeType">
+        <xs:sequence>
+            <xs:element name="szName" type="CitySizeType"/>
+            <xs:element name="Size">
+                <xs:simpleType>
+                    <xs:restriction base="xs:byte">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="NumLargeBuildings" type="xs:int"/>
+            <xs:element name="NumMediumBuildings" type="xs:int"/>
+            <xs:element name="NumSmallBuildings" type="xs:int"/>
+            <xs:element type="ProductionModifiersType" name="ProductionModifiers" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CityType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="szName"/>
+            <xs:element type="CitySizeType" name="Type"/>
+            <xs:element type="xs:int" name="StartX"/>
+            <xs:element type="xs:int" name="StartY"/>
+            <xs:element type="xs:double" name="Rotation"/>
+            <xs:element type="xs:boolean" name="bIsStartLocation"/>
+            <xs:element type="xs:string" name="szDefaultTrackSide"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RRTModelsType">
+        <xs:sequence>
+            <xs:element type="ModelType" name="Model" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

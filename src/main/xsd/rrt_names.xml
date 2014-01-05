@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Names>
+    <RRTCities>
+        <TextKey>
+            <Tag>TAG_CITY_NAME_AARAU</Tag>
+            <Text>Aarau</Text>
+            <Gender>M</Gender>
+        </TextKey>
+        <TextKey>
+            <Tag>TAG_CITY_NAME_AARAU</Tag>
+            <Text>Aarau</Text>
+            <Gender>F</Gender>
+        </TextKey>
+    </RRTCities>
+</Names>

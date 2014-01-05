@@ -1,0 +1,21 @@
+<jxb:bindings
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        jxb:extensionBindingPrefixes="xjc"
+        version="2.1">
+    <xs:annotation>
+        <xs:appinfo>
+            <jxb:globalBindings>
+                <xjc:simple/>
+            </jxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+    <!--<jxb:globalBindings typesafeEnumMemberName="generateName"/>-->
+    <!--<jxb:bindings schemaLocation="rrt_cities.xsd">-->
+    <!--<jxb:bindings node="//xs:simpleType[@name='education-level-type']/xs:restriction/xs:enumeration[@value='1-6']">-->
+    <!--<jxb:typesafeEnumMember name="ONE_TO_SIX"/>-->
+    <!--</jxb:bindings>-->
+    <!--</jxb:bindings>-->
+</jxb:bindings>
+
